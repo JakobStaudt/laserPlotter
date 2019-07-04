@@ -10,6 +10,24 @@ Open the laserPlotter.py file with your text editor, adjust the parameters, exec
 ### drawInstantly
 If this is false, the G-Code will be executed one after the other, simulating the Lasers behaviour.
 If it is True, the end result will be shown immediately.
+### drawTravel
+If this is enabled, the Travel of the Laser will be plotted too.
+### drawWaitBurn
+This feature attempts to model the burn in dots that appear if the Laser is enabled and doesn't mode. If the Laser is enabled and a G4 (Wait) Command is encountered, the Turtle will draw a dot, which size corresponds to the time of waiting.
+### maxBurnDia
+Maximum size the waitBurn dots will have. The dots will approach this ceiling asymptotically.
+### burnTimeCoefficient
+Coefficient used to tune the waitBurn diameter calculation. The total Formula for waitBurn diameter is pointDia = maxBurnDia - (maxBurnDia * (e^(waitTime / -burnTimeCoefficient))).
+### cutColor
+The Color used for plotting Laser Cuts.
+### travelColor
+The Color used for plotting Laser Travel.
+### laserEnable
+Beginning of a G-Code that means the Laser gets enabled.
+Depends on your configuration which G-Code you use to enable your Laser.
+### laserDisable
+Beginning of a G-Code that means the Laser gets disabled.
+Depends on your configuration which G-Code you use to disable your Laser.
 ### fileName
 The filename of the G-Code to open and plot.
 ### canvasScale
