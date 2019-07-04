@@ -10,6 +10,8 @@ maxBurnDia = 2
 burnTimeCoefficient = 800
 cutColor = "black"
 travelColor = "red"
+travelSpeed = 0
+cutSpeed = 1
 
 laserEnable = "M106"
 laserDisable = "M107"
@@ -27,7 +29,7 @@ if drawInstantly:
 
 turtle.penup()
 laserEnabled = False
-turtle.speed(0)
+turtle.speed(travelSpeed)
 turtle.goto(xOffset, yOffset)
 
 with open(fileName) as file:
@@ -36,6 +38,10 @@ with open(fileName) as file:
 for line in fileList:
     line = line.strip("\n")
     if line.startswith("G0") or line.startswith("G1"):
+        travel = False
+        if line.startswith("G0"):
+            travel = True
+        print(travel)
         xPos = re.search("X(\d+(\.\d+)?)", line)
         if xPos != None:
             xPos = float(xPos[0][1:])
@@ -43,6 +49,10 @@ for line in fileList:
         if yPos != None:
             yPos = float(yPos[0][1:])
         if xPos != None and yPos != None:
+            if travel:
+                turtle.speed(travelSpeed)
+            else:
+                turtle.speed(cutSpeed)
             turtle.goto(xPos * canvasScale + xOffset, yPos * canvasScale + yOffset)
     elif line.startswith("G4") and laserEnabled and drawWaitBurn:
         waitTime = re.search("P\d+", line)
