@@ -4,12 +4,20 @@ import random
 import math
 
 drawInstantly = False
+drawTravel = True
+cutColor = "black"
+travelColor = "red"
+
+laserEnable = "M106"
+laserDisable = "M107"
 
 fileName = "qrCode.nc"
 canvasScale = 30
 
 xOffset = canvasScale * -11
 yOffset = canvasScale * -11
+
+
 
 if drawInstantly:
     turtle.tracer(0, 0)
@@ -32,10 +40,15 @@ for line in fileList:
             yPos = float(yPos[0][1:])
         if xPos != None and yPos != None:
             turtle.goto(xPos * canvasScale + xOffset, yPos * canvasScale + yOffset)
-    elif line[:4] == "M106":
+    elif line.startswith(laserEnable):
+        if drawTravel:
+            turtle.color("black")
         turtle.pendown()
-    elif line[:4] == "M107":
-        turtle.penup()
+    elif line.startswith(laserDisable):
+        if drawTravel:
+            turtle.color("red")
+        else:
+            turtle.penup()
 
 turtle.update()
 
