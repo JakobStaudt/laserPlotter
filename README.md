@@ -22,6 +22,10 @@ Coefficient used to tune the waitBurn diameter calculation. The total Formula fo
 The Color used for plotting Laser Cuts.
 ### travelColor
 The Color used for plotting Laser Travel.
+### travelSpeed
+Speed of plotter for travel Moves. The Program determines if a move is travel with the G-Code (G0 is travel), not the Laser state.
+### cutSpeed
+Speed of plotter for cutting Moves. The Program determines if a move is for cutting with the G-Code (G1 is Cutting), not the Laser state.
 ### laserEnable
 Beginning of a G-Code that means the Laser gets enabled.
 Depends on your configuration which G-Code you use to enable your Laser.
