@@ -13,9 +13,9 @@ If it is True, the end result will be shown immediately.
 ### fileName
 The filename of the G-Code to open and plot.
 ### canvasScale
-The scale by which the plot is scaled. Since G-Code is most often in mm an turtle uses pixels, 
+The scale by which the plot is scaled. Since G-Code is most often in mm an turtle uses pixels,
 a scale of 1 would be hard to see for most application.
 ### xOffset
-The ammount the plot is shifted in x-Direction
+The amount the plot is shifted in x-Direction
 ### yOffset
-The ammount the plot is shifted in y-Direction
+The amount the plot is shifted in y-Direction
