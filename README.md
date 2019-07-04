@@ -1,7 +1,7 @@
 # laserPlotter
 Plotting laser G-Code with turtle
 ## What it is:
-This Program lets you generate simulate G-Code for CNC-Lasers by plotting them with the Python turtle module
+This Program lets you simulate G-Code for CNC-Lasers by plotting them with the Python turtle module
 ## What you need:
 A Python 3 installation and some G-Code to plot.
 ## How you use it:
