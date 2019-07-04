@@ -3,14 +3,23 @@ import re
 import random
 import math
 
+# draw slowly or show image immediately?
 drawInstantly = False
+# show lines where Laser is off?
 drawTravel = True
+# Draw Points where Laser is on and not moving?
 drawWaitBurn = True
+# ceiling of burn dot diameter
 maxBurnDia = 2
+# coefficient for burn dot diameter calculations
 burnTimeCoefficient = 800
+# color used for plotting when Laser is enabled
 cutColor = "black"
+# color used for plotting when Laser is disabled (and drawTravel is True)
 travelColor = "red"
+# speed for plotting travel Moves (based on G-Code G0, not Laser state)
 travelSpeed = 0
+# speed for plotting cutting Moves (based on G-Code G1, not Laser state)
 cutSpeed = 1
 
 laserEnable = "M106"
